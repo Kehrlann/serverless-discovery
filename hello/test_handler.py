@@ -1,16 +1,16 @@
 import unittest
-import hello_handler
+from hello import handler
 
 
 class LambdaSimpleTest(unittest.TestCase):
 
     def test_has_200_response_code(self):
-        response = hello_handler.handle()
+        response = handler.handle()
         self.assertEqual(200, response["statusCode"])
 
     def test_says_hello(self):
-        no_name = hello_handler.handle()
-        anton = hello_handler.handle(
+        no_name = handler.handle()
+        anton = handler.handle(
             {
                 "queryStringParameters":
                     {

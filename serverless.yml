@@ -10,7 +10,7 @@ provider:
 
 functions:
   greet:
-    handler: hello_handler.handle
+    handler: hello.handler.handle
     events:
       - http:
           integration: lambda-proxy
