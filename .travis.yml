@@ -8,12 +8,17 @@ cache:
   directories:
     - node_modules
 
-install:
-  - yarn add serverless
+#install:
+#  - yarn add serverless
 
 jobs:
   include:
     - stage: test
       script: python -m unittest
     - stage: deploy
-      script: npm run serverless --version
+      language: node_js
+      node_js:
+        - 8
+      install:
+        - yarn add serverless
+      script: yarn run serverless deploy --stage dev
