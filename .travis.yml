@@ -4,10 +4,11 @@ python:
   - 3.6
 
 cache:
-  - pip
-  - yarn
+  pip: true
+  directories:
+    - node_modules
 
 install:
-  - yarn global add serverless
+  - yarn add serverless
 
-script: python -m unittest
+script: python -m unittest && npm run serverless --version
