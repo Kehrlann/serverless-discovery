@@ -11,4 +11,9 @@ cache:
 install:
   - yarn add serverless
 
-script: python -m unittest && npm run serverless --version
+jobs:
+  include:
+    - stage: test
+      script: python -m unittest
+    - stage: deploy
+      script: npm run serverless --version
