@@ -1,24 +1,23 @@
-language: python
-
-python:
-  - 3.6
-
-cache:
-  pip: true
-  directories:
-    - node_modules
-
-#install:
-#  - yarn add serverless
 
 jobs:
   include:
+    # Test
     - stage: test
+      language: python
+      python:
+        - 3.6
+      cache:
+        pip: true
       script: python -m unittest
+
+    # Deploy
     - stage: deploy
       language: node_js
       node_js:
         - 8
+      cache:
+        directories:
+          - node_modules
       install:
         - yarn add serverless
       script: yarn run serverless deploy --stage dev
