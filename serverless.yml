@@ -6,7 +6,6 @@ provider:
   name: aws
   runtime: python3.6
   memorySize: 128
-  profile: moovement
   timeout: 5s
 
 functions:
